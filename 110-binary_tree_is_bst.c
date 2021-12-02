@@ -13,7 +13,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
 	if (tree == NULL)
 		return (0);
 
-	if (tree->next > tree->left->next && tree->right->next > tree->next)
+	if (tree->n > tree->left->n && tree->right->n > tree->n)
 		return (1);
 
 	else
