@@ -7,7 +7,9 @@
  */
 bst_t *_minimum(bst_t *node)
 {
-	bst_t *pos = node;
+	bst_t *pos;
+
+        pos = node;
 
 	while (pos && pos->left != NULL)
 		pos = pos->left;
@@ -26,7 +28,7 @@ bst_t *bst_remove(bst_t *root, int value)
 {
 	bst_t *temp;
 
-	temp = 0;
+	temp = NULL;
 	if (root == NULL)
 		return (root);
 
