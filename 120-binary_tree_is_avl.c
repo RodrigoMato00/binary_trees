@@ -10,7 +10,7 @@ size_t height(const binary_tree_t *tree)
 	if (tree)
 	{
 		size_t lleft = 0;
-	        size_t rright = 0;
+		size_t rright = 0;
 
 		lleft = tree->left ? 1 + height(tree->left) : 1;
 		rright = tree->right ? 1 + height(tree->right) : 1;
@@ -52,7 +52,8 @@ int is_avl_helper(const binary_tree_t *tree, int lo, int hi)
 }
 
 /**
- *binary_tree_is_avl - function that checks if a binary tree is a valid AVL Tree
+ *binary_tree_is_avl - function that checks if a binary tree
+ *is a valid AVL Tree
  *@tree: pointer to the root node of the tree to check
  *Return: 1 if tree is a valid AVL Tree, and 0 otherwise
  */
