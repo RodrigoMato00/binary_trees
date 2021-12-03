@@ -44,47 +44,36 @@ bst_t *bst_search(const bst_t *tree, int value)
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *del;
-	bst_t *rep;
-	bst_t *new_root;
+	bst_t *new_root, *rep, *del;
 	int stat;
 
 	if (root == NULL)
 		return (NULL);
-
 	del = bst_search(root, value);
 	if (del == NULL)
 		return (NULL);
 	rep = NULL, stat = 0;
-
 	if (del->right)
 	{
 		rep = del->right, stat = 1;
 		while (rep->left)
 			rep = rep->left;
 	}
-
 	else if (del->left)
 		rep = del->left;
-
-	if (rep == NULL)
-	{
+	if (rep == NULL){
 		if (del->parent->left->n == del->n)
 			del->parent->left = NULL;
-
 		else
 			del->parent->right = NULL;
 		new_root = find_root(del);
 		free(del);
 	}
-
-	else if (stat == 1)
-	{
+	else if (stat == 1){
 		del->n = rep->n;
 		new_root = find_root(rep);
 		if (rep->parent->left->n == rep->n)
 			rep->parent->left = NULL;
-
 		else
 			rep->parent->right = NULL;
 		free(rep);
@@ -95,7 +84,6 @@ bst_t *bst_remove(bst_t *root, int value)
 		del->left = del->left->left;
 		if (del->left)
 			del->left->parent = del;
-
 		new_root = find_root(del);
 		free(rep);
 	}
